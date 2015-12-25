@@ -67,7 +67,8 @@ class YQL(object):
         We have to create and fetch chunks dates (6 months chunks)."""
         data = []
 
-        counter = (relativedelta(self.end_date, self.start_date).months / 6) + 1
+        period_length = relativedelta(self.end_date,  self.start_date)
+        counter = int((period_length.months /  6 +  period_length.years *  2) +  1)
         months = 0
 
         for month in range(counter):
